@@ -862,4 +862,13 @@ typename array_type<T, size>::template meth<U>::const_method ofxPublishAsArray(T
 }
 
 /// \}
+                
+#ifdef ENABLE_OFXPUBSUBOSC_SHRINK_BUILDTIME
+                
+#define BBB_EXTERN extern
+#include "details/Instantiation/InstantiationPublish.inl"
+#undef BBB_EXTERN
+                
+#endif // ifdef ENABLE_OFXPUBSUBOSC_SHRINK_BUILDTIME
+
 #endif /* ofxPublisher_h */
