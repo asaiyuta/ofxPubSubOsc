@@ -162,8 +162,8 @@ namespace ofx {
             }
             
             using Targets = std::multimap<std::string, Subscribe::ParameterRef>;
-        };
-    };
-};
+        }; // end of namespace Subscribe
+    }; // end of namespace PubSubOsc
+}; // end of namespace ofx
 
 #endif /* ofxOscSubscribeParameter_h */
