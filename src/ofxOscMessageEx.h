@@ -57,7 +57,6 @@ namespace ofx {
                 && !std::is_same<type, std::initializer_list<char>>::value
             >::type *_ = nullptr>
             inline operator type() const { return as<type>(); }
-            explicit inline operator char() const { return as<char>(); }
 
             template <typename type>
             inline type as() const
