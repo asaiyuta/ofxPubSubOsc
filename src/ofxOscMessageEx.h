@@ -48,9 +48,17 @@ namespace ofx {
             , index(index)
             {};
             
-            template <typename type>
-            inline operator type() const { return as<type>(); }
+            inline std::string str() const { return as<std::string>(); };
+            explicit inline operator std::string() const { return as<std::string>(); };
             
+            template <typename type, typename std::enable_if<
+                !std::is_same<type, std::string>::value
+                && !std::is_same<type, const char *>::value
+                && !std::is_same<type, std::initializer_list<char>>::value
+            >::type *_ = nullptr>
+            inline operator type() const { return as<type>(); }
+            explicit inline operator char() const { return as<char>(); }
+
             template <typename type>
             inline type as() const
             {
